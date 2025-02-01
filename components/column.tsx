@@ -1,4 +1,6 @@
 import Task from './task'
+import { useMemo } from 'react'
+import { useTaskStore } from '@/store/task-store'
 
 const tasks = [
   {
@@ -15,8 +17,10 @@ export default function Column({
 }: {
   title: string
   status: string
-}) {
-  const filteredTasks = tasks.filter(task => task.status === status)
+  }) {
+  const tasks = useTaskStore(state => state.tasks)
+  
+  const filteredTasks = useMemo( () => tasks.filter(task => task.status === status),[tasks, status])
 
   return (
     <section className='h-[600px] flex-1'>

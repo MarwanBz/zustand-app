@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "./ui/textarea";
 import { useTaskStore } from "@/store/task-store";
 
-export default function NewTodoDialog() {
+export default function AddNewTaskModel() {
   const addTask = useTaskStore((state) => state.addTask);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
