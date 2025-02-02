@@ -19,11 +19,11 @@ export default function Task({
   return (
     <div
       className={cn(
-        "flex cursor-move items-start justify-between rounded-lg bg-white px-3 py-2 text-gray-900",
+        "flex cursor-move items-start justify-between rounded-lg bg-white px-4 py-3 text-gray-900",
         {
-          "border-4 rounded-3xl border-sky-500": status === "TODO",
-          "border-4 rounded-3xl border-amber-500": status === "IN_PROGRESS",
-          "border-4 rounded-3xl border-emerald-500": status === "DONE",
+          "border-4 rounded-full border-sky-500": status === "TODO",
+          "border-4 rounded-full border-amber-500": status === "IN_PROGRESS",
+          "border-4 rounded-full border-emerald-500": status === "DONE",
         }
       )}
       draggable

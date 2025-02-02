@@ -25,18 +25,18 @@ export type Actions = {
 export const useTaskStore = create<State & Actions>()(set => ({
   tasks: [],
   draggedTask: null,
-  dragTask: (id: string | null) => set({ draggedTask: id }),
   addTask: (title: string, description?: string) => set(state => ({
     tasks: [...state.tasks, { id: uuid(), title, description, status: "TODO" }]
   })),
+  dragTask: (id: string | null) => set({ draggedTask: id }),
   removeTask: (id: string) => {
     set(state => ({ tasks: state.tasks.filter(task => task.id !== id) }));  // remove task by id
-   },
+  },
   updateTask: (id: string, status: Status) => {
     set(state => (
       {
         tasks: state.tasks.map(task => task.id === id ? { ...task, status } : task)
       } // update task by id
     ))
-   },
+  },
 }));
