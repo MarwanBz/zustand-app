@@ -15,6 +15,7 @@ export default function Task({
   status:Status
 }) {
   const  dragTask = useTaskStore(state => state.dragTask)
+  const  removeTask = useTaskStore(state => state.removeTask)
 
   return (
     <div
@@ -34,7 +35,7 @@ export default function Task({
         <p className="text-sm font-light text-gray-500">{description}</p>
       </div>
 
-      <button className="cursor-pointer">
+      <button className="cursor-pointer" onClick={() => removeTask(id)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
